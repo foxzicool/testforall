@@ -77,7 +77,7 @@ interface MenuItem {
   title: string;
   to?: string;
   external?: boolean;
-  icon?: (typeof icons)[number] | string | Component;
+  icon?:string | Component | (typeof icons)[number] ;
   subItems?: MenuItem[]; 
 }
 type Props = { items: MenuItem[]; location: Anchor; buttonLabel: string; icon?: IconType; };
