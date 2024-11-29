@@ -41,5 +41,4 @@ export { useStrapiUser } from '../node_modules/@nuxtjs/strapi/dist/runtime/compo
 export { useStrapiVersion } from '../node_modules/@nuxtjs/strapi/dist/runtime/composables/useStrapiVersion';
 export { useStrapi } from '../node_modules/@nuxtjs/strapi/dist/runtime/composables-v5/useStrapi';
 export { useDate, useLocale, useDefaults, useDisplay, useLayout, useRtl, useTheme, useGoTo } from 'vuetify';
-export { useNuxtDevTools } from '../../../../node_modules/@nuxt/devtools/dist/runtime/use-nuxt-devtools';
 export { definePageMeta } from '../../../../node_modules/nuxt/dist/pages/runtime/composables';

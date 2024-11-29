@@ -74,10 +74,10 @@ import ThIcon, { type icons } from '~/components/icon';
 type IconType = 'top' | 'bottom' | 'start' | 'end' | 'center';
 type Anchor = 'top' | 'bottom' | 'start' | 'end' | 'center';
 interface MenuItem {
-  title: string;        // Used in displaying the link text
-  to?: string;          // URL to which the item links
-  external?: boolean;   // If the link should open in a new tab
-  icon?: string | Component;        // Icon to display if any
+  title: string;
+  to?: string;
+  external?: boolean;
+  icon?: (typeof icons)[number] | string | Component;
   subItems?: MenuItem[]; 
 }
 type Props = { items: MenuItem[]; location: Anchor; buttonLabel: string; icon?: IconType; };
