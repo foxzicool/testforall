@@ -20,7 +20,7 @@
                 </template>
               </v-list-item-title>
             </v-list-item-content>
-            <template v-slot:append>
+            <template #append>
               <ThIcon v-if="item.subItems?.length && item.icon" :icon="item.icon" />
             </template>
             <v-menu v-if="item.subItems?.length" open-on-hover activator="parent" submenu>
@@ -37,7 +37,7 @@
                         </template>
                       </v-list-item-title>
                     </v-list-item-content>
-                    <template v-slot:append>
+                    <template #append>
                       <ThIcon v-if="subItem.subItems?.length && subItem.icon" :icon="subItem.icon" />
                     </template>
                     <v-menu v-if="subItem.subItems?.length" open-on-hover activator="parent" submenu>
@@ -71,15 +71,15 @@
 
 <script setup lang="ts">
 import ThIcon, { type icons } from '~/components/icon';
-
+type IconType = 'top' | 'bottom' | 'start' | 'end' | 'center';
 type Anchor = 'top' | 'bottom' | 'start' | 'end' | 'center';
 interface MenuItem {
   title: string;        // Used in displaying the link text
   to?: string;          // URL to which the item links
   external?: boolean;   // If the link should open in a new tab
-  icon?: any;         // Icon to display if any
-  subItems?: MenuItem[]; // Nested subItems of the same type
+  icon?: string | Component;        // Icon to display if any
+  subItems?: MenuItem[]; 
 }
-type Props = { items: MenuItem[]; location: Anchor; buttonLabel: string; icon?: any; };
+type Props = { items: MenuItem[]; location: Anchor; buttonLabel: string; icon?: IconType; };
 const { items, location, buttonLabel, icon } = defineProps<Props>();
 </script>
