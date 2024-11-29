@@ -81,13 +81,13 @@
         "../public/*"
       ],
       "#app": [
-        "../node_modules/nuxt/dist/app"
+        "../../../../node_modules/nuxt/dist/app"
       ],
       "#app/*": [
-        "../node_modules/nuxt/dist/app/*"
+        "../../../../node_modules/nuxt/dist/app/*"
       ],
       "vue-demi": [
-        "../node_modules/nuxt/dist/app/compat/vue-demi"
+        "../../../../node_modules/nuxt/dist/app/compat/vue-demi"
       ],
       "#vue-router": [
         "../node_modules/vue-router"
@@ -96,7 +96,7 @@
         "./imports"
       ],
       "#app-manifest": [
-        "./manifest/meta/7fc426ac-200b-4cda-ac87-5d7f206057e8.json"
+        "./manifest/meta/dev"
       ],
       "#build": [
         "."
@@ -142,8 +142,8 @@
     "../**/*",
     "../node_modules/@nuxt/eslint/runtime",
     "../node_modules/@nuxt/eslint/dist/runtime",
-    "../../../runtime",
-    "../../../dist/runtime",
+    "../../../../Document/runtime",
+    "../../../../Document/dist/runtime",
     "../node_modules/vuetify-nuxt-module/runtime",
     "../node_modules/vuetify-nuxt-module/dist/runtime",
     "../node_modules/@nuxtjs/strapi/runtime",
@@ -152,16 +152,18 @@
     "../node_modules/@nuxt/devtools/dist/runtime",
     "../node_modules/@nuxt/telemetry/runtime",
     "../node_modules/@nuxt/telemetry/dist/runtime",
-    ".."
+    "..",
+    "../../../../node_modules/nuxt/dist/app",
+    "../../../../node_modules/nuxt/dist/app/compat/vue-demi"
   ],
   "exclude": [
     "../dist",
     "../node_modules",
-    "../node_modules/nuxt/node_modules",
+    "../../../../node_modules/nuxt/node_modules",
     "../node_modules/@nuxt/eslint/runtime/server",
     "../node_modules/@nuxt/eslint/dist/runtime/server",
-    "../../../runtime/server",
-    "../../../dist/runtime/server",
+    "../../../../Document/runtime/server",
+    "../../../../Document/dist/runtime/server",
     "../node_modules/vuetify-nuxt-module/runtime/server",
     "../node_modules/vuetify-nuxt-module/dist/runtime/server",
     "../node_modules/@nuxtjs/strapi/runtime/server",

@@ -75,7 +75,7 @@
         "../node_modules/nuxt"
       ],
       "#internal/nuxt/paths": [
-        "../node_modules/nuxt/dist/core/runtime/nitro/paths"
+        "../../../../node_modules/nuxt/dist/core/runtime/nitro/paths"
       ],
       "~": [
         "./.."
@@ -114,7 +114,7 @@
   "include": [
     "./types/nitro-nuxt.d.ts",
     "../node_modules/@nuxt/eslint/runtime/server",
-    "../../../runtime/server",
+    "../../../../Document/runtime/server",
     "../node_modules/vuetify-nuxt-module/runtime/server",
     "../node_modules/@nuxtjs/strapi/runtime/server",
     "../node_modules/@nuxt/devtools/runtime/server",
@@ -125,7 +125,7 @@
   ],
   "exclude": [
     "../node_modules",
-    "../node_modules/nuxt/node_modules",
+    "../../../../node_modules/nuxt/node_modules",
     "../dist"
   ]
 }
