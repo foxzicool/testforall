@@ -1,10 +1,11 @@
 <template>
   <div class="text-center">
-    <v-menu :location>
+    <v-menu :location="location">
       <template #activator="{ props }">
         <v-btn v-bind="props">
           {{ buttonLabel }}
-          <ThIcon v-if="icon" :icon />
+          <!-- 确保 :icon 的值正确传递 -->
+          <ThIcon v-if="icon" :icon="icon" />
         </v-btn>
       </template>
       <v-list>
@@ -21,6 +22,7 @@
               </v-list-item-title>
             </v-list-item-content>
             <template #append>
+              <!-- 确保 :icon 的值正确传递 -->
               <ThIcon v-if="item.subItems?.length && item.icon" :icon="item.icon" />
             </template>
             <v-menu v-if="item.subItems?.length" open-on-hover activator="parent" submenu>
@@ -38,6 +40,7 @@
                       </v-list-item-title>
                     </v-list-item-content>
                     <template #append>
+                      <!-- 确保 :icon 的值正确传递 -->
                       <ThIcon v-if="subItem.subItems?.length && subItem.icon" :icon="subItem.icon" />
                     </template>
                     <v-menu v-if="subItem.subItems?.length" open-on-hover activator="parent" submenu>
@@ -70,16 +73,17 @@
 </template>
 
 <script setup lang="ts">
-import ThIcon, { type icons } from '~/components/icon';
-type IconType = 'top' | 'bottom' | 'start' | 'end' | 'center';
+import ThIcon from '~/components/icon';
+
+type IconName = 'arrow_right' | 'dropdown' | 'menu'; // 根据 ThIcon 组件修改此类型
 type Anchor = 'top' | 'bottom' | 'start' | 'end' | 'center';
 interface MenuItem {
-  title: string;
-  to?: string;
-  external?: boolean;
-  icon?:string | Component | (typeof icons)[number] ;
+  title: string;        
+  to?: string;         
+  external?: boolean;  
+  icon?: IconName;     // 使用正确的图标类型
   subItems?: MenuItem[]; 
 }
-type Props = { items: MenuItem[]; location: Anchor; buttonLabel: string; icon?: IconType; };
+type Props = { items: MenuItem[]; location: Anchor; buttonLabel: string; icon?: IconName; };
 const { items, location, buttonLabel, icon } = defineProps<Props>();
 </script>
