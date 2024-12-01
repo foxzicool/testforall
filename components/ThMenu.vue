@@ -81,7 +81,7 @@ interface MenuItem {
   title: string;        
   to?: string;         
   external?: boolean;  
-  icon?: IconName;     // 使用正确的图标类型
+  icon?: IconName;    
   subItems?: MenuItem[]; 
 }
 type Props = { items: MenuItem[]; location: Anchor; buttonLabel: string; icon?: IconName; };
