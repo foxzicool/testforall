@@ -9,22 +9,22 @@ describe('<ThMenu />', () => {
       title: 'Main Option 1',
       to: 'https://nuxt.com',
       external: false,
-      icon: 'menu',
+      icon: 'menu' as const,  // 使用 'as const' 来确保类型正确
       subItems: [
         {
           title: 'Suboption 1-1',
           to: 'https://nuxt.com',
           external: false,
-          icon: 'menu'
+          icon: 'menu' as const
         },
         {
           title: 'Suboption 1-2',
           to: 'https://nuxt.com',
           external: true,
-          icon: 'menu',
+          icon: 'menu' as const,
           subItems: [
-            { title: 'Sub-suboption 1-2-1', to: 'https://nuxt.com', external: false, icon: 'menu' },
-            { title: 'Sub-suboption 1-2-2', to: 'https://nuxt.com', external: true, icon: 'menu' }
+            { title: 'Sub-suboption 1-2-1', to: 'https://nuxt.com', external: false, icon: 'menu' as const },
+            { title: 'Sub-suboption 1-2-2', to: 'https://nuxt.com', external: true, icon: 'menu' as const }
           ]
         }
       ]
@@ -35,7 +35,7 @@ describe('<ThMenu />', () => {
     items,
     location: 'top',
     buttonLabel: 'About Us',
-    icon: 'arrow_right'
+    icon: 'arrow_right' as const // 确保这里也是 IconName 类型
   };
 
   it('renders button with label and icon', async () => {
