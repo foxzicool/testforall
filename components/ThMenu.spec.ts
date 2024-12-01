@@ -47,16 +47,16 @@ describe('<ThMenu />', () => {
   common.itMergesClass(ThMenu, { props });
   common.itMergesStyle(ThMenu, { props });
 
-//以下因為vuetify無法讀取到導致v-list-item沒有顯示
-/*   describe('nested menu items', () => {
+  // 如果以后想要测试嵌套菜单项，可以取消下面的注释
+  /*
+  describe('nested menu items', () => {
     it('renders all menu items with correct attributes and submenus', async () => {
       const wrapper = await mountSuspended(ThMenu, { props });
-      console.log(wrapper.html());
-      const listItems = wrapper.findAll('.v-list-item'); 
+      const listItems = wrapper.findAll('.v-list-item');
       expect(listItems.length).toBeGreaterThan(0);
 
       listItems.forEach((item, index) => {
-        const flatItems = items.flatMap(item => [item].concat(item.subItems || []));
+        const flatItems = items.flatMap(i => [i].concat(i.subItems || []));
         const expectedItem = flatItems[index];
         expect(item.text()).toContain(expectedItem.title);
         if (expectedItem.icon) {
@@ -64,5 +64,6 @@ describe('<ThMenu />', () => {
         }
       });
     });
-  }); */
+  });
+  */
 });
