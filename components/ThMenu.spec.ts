@@ -30,7 +30,7 @@ describe('<ThMenu />', () => {
       ]
     }
   ];
-
+  
   const props = {
     items,
     buttonLabel: 'About Us',
@@ -43,13 +43,11 @@ describe('<ThMenu />', () => {
         const itemIcon = wrapper.findComponent({ name: 'ThIcon', props: { icon: item.icon } });
         expect(itemIcon.exists()).toBe(true);
       }
-
       item.subItems?.forEach(subItem => {
         if (subItem.icon) {
           const subItemIcon = wrapper.findComponent({ name: 'ThIcon', props: { icon: subItem.icon } });
           expect(subItemIcon.exists()).toBe(true);
         }
-
         subItem.subItems?.forEach(subSubItem => {
           if (subSubItem.icon) {
             const subSubItemIcon = wrapper.findComponent({ name: 'ThIcon', props: { icon: subSubItem.icon } });
