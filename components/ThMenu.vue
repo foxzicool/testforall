@@ -4,7 +4,6 @@
       <template #activator="{ props }">
         <v-btn v-bind="props">
           {{ buttonLabel }}
-          <!-- 确保 :icon 的值正确传递 -->
           <ThIcon v-if="icon" :icon="icon" />
         </v-btn>
       </template>
@@ -22,7 +21,6 @@
               </v-list-item-title>
             </v-list-item-content>
             <template #append>
-              <!-- 确保 :icon 的值正确传递 -->
               <ThIcon v-if="item.subItems?.length && item.icon" :icon="item.icon" />
             </template>
             <v-menu v-if="item.subItems?.length" open-on-hover activator="parent" submenu>
@@ -40,7 +38,6 @@
                       </v-list-item-title>
                     </v-list-item-content>
                     <template #append>
-                      <!-- 确保 :icon 的值正确传递 -->
                       <ThIcon v-if="subItem.subItems?.length && subItem.icon" :icon="subItem.icon" />
                     </template>
                     <v-menu v-if="subItem.subItems?.length" open-on-hover activator="parent" submenu>
@@ -75,7 +72,7 @@
 <script setup lang="ts">
 import ThIcon from '~/components/icon';
 
-type IconName = 'arrow_right' | 'dropdown' | 'menu'; // 根据 ThIcon 组件修改此类型
+type IconName = 'arrow_right' | 'dropdown' | 'menu';
 type Anchor = 'top' | 'bottom' | 'start' | 'end' | 'center';
 interface MenuItem {
   title: string;        

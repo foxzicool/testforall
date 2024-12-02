@@ -9,7 +9,7 @@ describe('<ThMenu />', () => {
       title: 'Main Option 1',
       to: 'https://nuxt.com',
       external: false,
-      icon: 'menu' as const, // 确保使用 IconName 类型
+      icon: 'menu' as const,
       subItems: [
         {
           title: 'Suboption 1-1',
@@ -33,9 +33,9 @@ describe('<ThMenu />', () => {
 
   const props = {
     items,
-    location: 'top' as const, // 使用 'as const' 确保是 Anchor 类型
+    location: 'top' as const,
     buttonLabel: 'About Us',
-    icon: 'arrow_right' as const // 确保这里也是 IconName 类型
+    icon: 'arrow_right' as const
   };
 
   it('renders button with label and icon', async () => {
