@@ -43,7 +43,28 @@ describe('<ThMenu />', () => {
     expect(wrapper.text()).toContain(props.buttonLabel);
     expect(wrapper.findComponent({ name: 'ThIcon' }).exists()).toBe(true);
   });
-
+  it('renders all icons for menu items at every level', async () => {
+    const wrapper = await mountSuspended(ThMenu, { props });
+    items.forEach((item, i) => {
+      if (item.icon) {
+        expect(wrapper.findAll('.th-icon')[i].isVisible()).toBe(true);
+      }
+      if (item.subItems) {
+        item.subItems.forEach((subItem, j) => {
+          if (subItem.icon) {
+            expect(wrapper.findAll('.th-icon')[i + j + 1].isVisible()).toBe(true);
+          }
+          if (subItem.subItems) {
+            subItem.subItems.forEach((subSubItem, k) => {
+              if (subSubItem.icon) {
+                expect(wrapper.findAll('.th-icon')[i + j + k + 2].isVisible()).toBe(true);
+              }
+            });
+          }
+        });
+      }
+    });
+  });
   common.itMergesClass(ThMenu, { props });
   common.itMergesStyle(ThMenu, { props });
 
