@@ -30,7 +30,7 @@ describe('<ThMenu />', () => {
       ]
     }
   ];
-  
+
   const props = {
     items,
     buttonLabel: 'About Us',
@@ -40,17 +40,17 @@ describe('<ThMenu />', () => {
     const wrapper = await mountSuspended(ThMenu, { props });
     items.forEach(item => {
       if (item.icon) {
-        const itemIcon = wrapper.findComponent({ name: 'ThIcon', props: { icon: item.icon } });
+        const itemIcon = wrapper.findComponent({ name: 'th-icon', props: { icon: item.icon } });
         expect(itemIcon.exists()).toBe(true);
       }
       item.subItems?.forEach(subItem => {
         if (subItem.icon) {
-          const subItemIcon = wrapper.findComponent({ name: 'ThIcon', props: { icon: subItem.icon } });
+          const subItemIcon = wrapper.findComponent({ name: 'th-icon', props: { icon: subItem.icon } });
           expect(subItemIcon.exists()).toBe(true);
         }
         subItem.subItems?.forEach(subSubItem => {
           if (subSubItem.icon) {
-            const subSubItemIcon = wrapper.findComponent({ name: 'ThIcon', props: { icon: subSubItem.icon } });
+            const subSubItemIcon = wrapper.findComponent({ name: 'th-icon', props: { icon: subSubItem.icon } });
             expect(subSubItemIcon.exists()).toBe(true);
           }
         });
@@ -61,7 +61,7 @@ describe('<ThMenu />', () => {
   it('renders button with label and icon', async () => {
     const wrapper = await mountSuspended(ThMenu, { props });
     expect(wrapper.text()).toContain(props.buttonLabel);
-    const buttonIcon = wrapper.findComponent({ name: 'ThIcon' });
+    const buttonIcon = wrapper.findComponent({ name: 'th-icon' });
     expect(buttonIcon.exists()).toBe(true);
     expect(buttonIcon.props('icon')).toBe(props.icon);
   });
