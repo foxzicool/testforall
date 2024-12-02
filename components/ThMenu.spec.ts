@@ -9,22 +9,22 @@ describe('<ThMenu />', () => {
       title: 'Main Option 1',
       to: 'https://nuxt.com',
       external: false,
-      icon: 'menu' as const,
+      icon: 'menu',
       subItems: [
         {
           title: 'Suboption 1-1',
           to: 'https://nuxt.com',
           external: false,
-          icon: 'menu' as const
+          icon: 'menu'
         },
         {
           title: 'Suboption 1-2',
           to: 'https://nuxt.com',
           external: true,
-          icon: 'menu' as const,
+          icon: 'menu',
           subItems: [
-            { title: 'Sub-suboption 1-2-1', to: 'https://nuxt.com', external: false, icon: 'menu' as const },
-            { title: 'Sub-suboption 1-2-2', to: 'https://nuxt.com', external: true, icon: 'menu' as const }
+            { title: 'Sub-suboption 1-2-1', to: 'https://nuxt.com', external: false, icon: 'menu' },
+            { title: 'Sub-suboption 1-2-2', to: 'https://nuxt.com', external: true, icon: 'menu' }
           ]
         }
       ]
@@ -33,9 +33,9 @@ describe('<ThMenu />', () => {
 
   const props = {
     items,
-    location: 'top' as const,
+    location: 'top',
     buttonLabel: 'About Us',
-    icon: 'arrow_right' as const
+    icon: 'arrow_right'
   };
 
   it('renders button with label and icon', async () => {
@@ -48,15 +48,15 @@ describe('<ThMenu />', () => {
     const wrapper = await mountSuspended(ThMenu, { props });
     items.forEach(item => {
       if (item.icon) {
-        expect(wrapper.find(`[data-test="menu-icon-${item.title}"]`).exists()).toBe(true);
+        expect(wrapper.findComponent({ name: 'ThIcon' }).props('icon')).toBe(item.icon);
       }
       item.subItems?.forEach(subItem => {
         if (subItem.icon) {
-          expect(wrapper.find(`[data-test="menu-icon-${subItem.title}"]`).exists()).toBe(true);
+          expect(wrapper.findComponent({ name: 'ThIcon' }).props('icon')).toBe(subItem.icon);
         }
         subItem.subItems?.forEach(subSubItem => {
           if (subSubItem.icon) {
-            expect(wrapper.find(`[data-test="menu-icon-${subSubItem.title}"]`).exists()).toBe(true);
+            expect(wrapper.findComponent({ name: 'ThIcon' }).props('icon')).toBe(subSubItem.icon);
           }
         });
       });
