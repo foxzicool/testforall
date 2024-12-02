@@ -61,9 +61,9 @@ describe('<ThMenu />', () => {
   it('renders button with label and icon', async () => {
     const wrapper = await mountSuspended(ThMenu, { props });
     expect(wrapper.text()).toContain(props.label);
-    const buttonIcon = wrapper.findComponent({ name: 'th-icon' });
-    expect(buttonIcon.exists()).toBe(true);
-    expect(buttonIcon.props('icon')).toBe(props.icon);
+    const thButtonIcon = wrapper.findComponent({ name: 'th-icon' });
+    expect(thButtonIcon.exists()).toBe(true);
+    expect(thButtonIcon.props('icon')).toBe(props.icon);
   });
   common.itMergesClass(ThMenu, { props });
   common.itMergesStyle(ThMenu, { props });
