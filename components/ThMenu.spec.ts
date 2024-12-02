@@ -33,7 +33,7 @@ describe('<ThMenu />', () => {
 
   const props = {
     items,
-    buttonLabel: 'About Us',
+    label: 'About Us',
     icon: 'arrow_right' as const
   };
   it('shows icons for each menu item with an icon property', async () => {
@@ -60,7 +60,7 @@ describe('<ThMenu />', () => {
 
   it('renders button with label and icon', async () => {
     const wrapper = await mountSuspended(ThMenu, { props });
-    expect(wrapper.text()).toContain(props.buttonLabel);
+    expect(wrapper.text()).toContain(props.label);
     const buttonIcon = wrapper.findComponent({ name: 'th-icon' });
     expect(buttonIcon.exists()).toBe(true);
     expect(buttonIcon.props('icon')).toBe(props.icon);

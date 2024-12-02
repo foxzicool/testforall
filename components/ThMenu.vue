@@ -3,7 +3,7 @@
     <v-menu>
       <template #activator="{ props }">
         <v-btn v-bind="props">
-          {{ buttonLabel }}
+          {{ label }}
           <ThIcon v-if="icon" :icon />
         </v-btn>
       </template>
@@ -80,6 +80,6 @@ interface MenuItem {
   icon?: IconName;    
   subItems?: MenuItem[]; 
 }
-type Props = { items: MenuItem[]; buttonLabel: string; icon?: IconName; };
-const { items, buttonLabel, icon } = defineProps<Props>();
+type Props = { items: MenuItem[]; label: string; icon?: IconName; };
+const { items, label, icon } = defineProps<Props>();
 </script>

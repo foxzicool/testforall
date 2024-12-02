@@ -7,7 +7,7 @@ export default {
   title: 'Components/ThMenu',
   component: ThMenu,
   argTypes: {
-    buttonLabel: {
+    label: {
       control: 'text',
       description: 'Label for the dropdown button',
     },
@@ -81,6 +81,6 @@ Default.args = {
       ],
     },
   ],
-  buttonLabel: '關於我們',
+  label: '關於我們',
   icon: 'arrow_right',
 };
