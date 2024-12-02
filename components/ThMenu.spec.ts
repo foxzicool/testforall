@@ -59,4 +59,6 @@ describe('<ThMenu />', () => {
       });
     });
   });
+  common.itMergesClass(ThMenu, { props });
+  common.itMergesStyle(ThMenu, { props });
 });
