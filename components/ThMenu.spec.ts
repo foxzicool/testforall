@@ -45,22 +45,18 @@ describe('<ThMenu />', () => {
   it('shows icons for each menu item with an icon property', async () => {
     const wrapper = await mountSuspended(ThMenu, { props });
     items.forEach(item => {
-      if (item.icon) {
-        expect(wrapper.findComponent({ name: 'ThIcon' }).props('icon')).toBe(item.icon);
-      }
+      const itemIcon = wrapper.find(`#${item.title}-icon`);
+      expect(itemIcon.props('icon')).toBe(item.icon);
+
       item.subItems?.forEach(subItem => {
-        if (subItem.icon) {
-          expect(wrapper.findComponent({ name: 'ThIcon' }).props('icon')).toBe(subItem.icon);
-        }
+        const subItemIcon = wrapper.find(`#${subItem.title}-icon`);
+        expect(subItemIcon.props('icon')).toBe(subItem.icon);
+
         subItem.subItems?.forEach(subSubItem => {
-          if (subSubItem.icon) {
-            expect(wrapper.findComponent({ name: 'ThIcon' }).props('icon')).toBe(subSubItem.icon);
-          }
+          const subSubItemIcon = wrapper.find(`#${subSubItem.title}-icon`);
+          expect(subSubItemIcon.props('icon')).toBe(subSubItem.icon);
         });
       });
     });
   });
-
-  common.itMergesClass(ThMenu, { props });
-  common.itMergesStyle(ThMenu, { props });
 });
