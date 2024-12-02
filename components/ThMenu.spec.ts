@@ -33,7 +33,6 @@ describe('<ThMenu />', () => {
 
   const props = {
     items,
-    location: 'top' as const,
     buttonLabel: 'About Us',
     icon: 'arrow_right' as const
   };
