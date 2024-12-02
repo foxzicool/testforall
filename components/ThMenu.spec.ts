@@ -44,6 +44,25 @@ describe('<ThMenu />', () => {
     expect(wrapper.findComponent({ name: 'ThIcon' }).exists()).toBe(true);
   });
 
+  it('shows icons for each menu item with an icon property', async () => {
+    const wrapper = await mountSuspended(ThMenu, { props });
+    items.forEach(item => {
+      if (item.icon) {
+        expect(wrapper.find(`[data-test="menu-icon-${item.title}"]`).exists()).toBe(true);
+      }
+      item.subItems?.forEach(subItem => {
+        if (subItem.icon) {
+          expect(wrapper.find(`[data-test="menu-icon-${subItem.title}"]`).exists()).toBe(true);
+        }
+        subItem.subItems?.forEach(subSubItem => {
+          if (subSubItem.icon) {
+            expect(wrapper.find(`[data-test="menu-icon-${subSubItem.title}"]`).exists()).toBe(true);
+          }
+        });
+      });
+    });
+  });
+
   common.itMergesClass(ThMenu, { props });
   common.itMergesStyle(ThMenu, { props });
 });
