@@ -1,10 +1,10 @@
 <template>
   <div class="text-center">
-    <v-menu :location="location">
+    <v-menu>
       <template #activator="{ props }">
         <v-btn v-bind="props">
           {{ buttonLabel }}
-          <ThIcon v-if="icon" :icon="icon" />
+          <ThIcon v-if="icon" :icon />
         </v-btn>
       </template>
       <v-list>
@@ -73,7 +73,6 @@
 import ThIcon from '~/components/icon';
 
 type IconName = 'arrow_right' | 'dropdown' | 'menu';
-type Anchor = 'top' | 'bottom' | 'start' | 'end' | 'center';
 interface MenuItem {
   title: string;        
   to?: string;         
@@ -81,6 +80,6 @@ interface MenuItem {
   icon?: IconName;    
   subItems?: MenuItem[]; 
 }
-type Props = { items: MenuItem[]; location: Anchor; buttonLabel: string; icon?: IconName; };
-const { items, location, buttonLabel, icon } = defineProps<Props>();
+type Props = { items: MenuItem[]; buttonLabel: string; icon?: IconName; };
+const { items, buttonLabel, icon } = defineProps<Props>();
 </script>

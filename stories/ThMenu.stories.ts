@@ -22,11 +22,6 @@ export default {
       description:
         'Menu items array, each with potential "to", "external", and "icon" properties. Items with subitems are not links.',
     },
-    location: {
-      control: 'select',
-      options: ['top', 'bottom', 'start', 'end', 'center'],
-      description: 'Menu anchor location',
-    },
   },
 };
 
@@ -87,6 +82,5 @@ Default.args = {
     },
   ],
   buttonLabel: '關於我們',
-  location: 'top',
   icon: 'arrow_right',
 };
