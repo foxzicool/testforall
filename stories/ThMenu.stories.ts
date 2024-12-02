@@ -20,7 +20,7 @@ export default {
     items: {
       control: 'object',
       description:
-        'Array of menu items with subitems, each item might include a "to", "external" and "icon" property for links and icons.',
+        'Menu items array, each with potential "to", "external", and "icon" properties. Items with subitems are not links.',
     },
     location: {
       control: 'select',

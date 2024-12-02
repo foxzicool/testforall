@@ -8,12 +8,12 @@
         </v-btn>
       </template>
       <v-list>
-        <template v-for="item in items" :key="item.title">
+        <template v-for="(item, index) in items" :key="`${index}-${item.title}`">
           <v-list-item>
             <v-list-item-content>
               <v-list-item-title>
-                <template v-if="!item.subItems || item.subItems.length === 0">
-                  <NuxtLink :to="item.to" :target="item.external ? '_blank' : '_self'">{{ item.title }}</NuxtLink>
+                <template v-if="!item?.subItems">
+                  <NuxtLink :to="item.to">{{ item.title }}</NuxtLink>
                 </template>
                 <template v-else>
                   {{ item.title }}
@@ -25,12 +25,12 @@
             </template>
             <v-menu v-if="item.subItems?.length" open-on-hover activator="parent" submenu>
               <v-list>
-                <template v-for="subItem in item.subItems" :key="subItem.title">
+                <template v-for="(subItem, subIndex) in item.subItems" :key="`${index}-${subIndex}-${subItem.title}`">
                   <v-list-item>
                     <v-list-item-content>
                       <v-list-item-title>
-                        <template v-if="!subItem.subItems || subItem.subItems.length === 0">
-                          <NuxtLink :to="subItem.to" :target="subItem.external ? '_blank' : '_self'">{{ subItem.title }}</NuxtLink>
+                        <template v-if="!subItem?.subItems">
+                          <NuxtLink :to="subItem.to">{{ subItem.title }}</NuxtLink>
                         </template>
                         <template v-else>
                           {{ subItem.title }}
@@ -42,12 +42,12 @@
                     </template>
                     <v-menu v-if="subItem.subItems?.length" open-on-hover activator="parent" submenu>
                       <v-list>
-                        <template v-for="subSubItem in subItem.subItems" :key="subSubItem.title">
+                        <template v-for="(subSubItem, subSubIndex) in subItem.subItems" :key="`${index}-${subIndex}-${subSubIndex}-${subSubItem.title}`">
                           <v-list-item>
                             <v-list-item-content>
                               <v-list-item-title>
-                                <template v-if="!subSubItem.subItems || subSubItem.subItems.length === 0">
-                                  <NuxtLink :to="subSubItem.to" :target="subSubItem.external ? '_blank' : '_self'">{{ subSubItem.title }}</NuxtLink>
+                                <template v-if="!subSubItem?.subItems">
+                                  <NuxtLink :to="subSubItem.to">{{ subSubItem.title }}</NuxtLink>
                                 </template>
                                 <template v-else>
                                   {{ subSubItem.title }}
