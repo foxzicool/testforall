@@ -45,15 +45,15 @@ describe('<ThMenu />', () => {
   it('shows icons for each menu item with an icon property', async () => {
     const wrapper = await mountSuspended(ThMenu, { props });
     items.forEach(item => {
-      const itemIcon = wrapper.find(`#${item.title}-icon`);
+      const itemIcon = wrapper.findComponent({ name: 'ThIcon', props: { id: `${item.title}-icon` } });
       expect(itemIcon.props('icon')).toBe(item.icon);
 
       item.subItems?.forEach(subItem => {
-        const subItemIcon = wrapper.find(`#${subItem.title}-icon`);
+        const subItemIcon = wrapper.findComponent({ name: 'ThIcon', props: { id: `${subItem.title}-icon` } });
         expect(subItemIcon.props('icon')).toBe(subItem.icon);
 
         subItem.subItems?.forEach(subSubItem => {
-          const subSubItemIcon = wrapper.find(`#${subSubItem.title}-icon`);
+          const subSubItemIcon = wrapper.findComponent({ name: 'ThIcon', props: { id: `${subSubItem.title}-icon` } });
           expect(subSubItemIcon.props('icon')).toBe(subSubItem.icon);
         });
       });
