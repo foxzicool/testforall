@@ -45,26 +45,30 @@ describe('<ThMenu />', () => {
   });
   it('renders all icons for menu items at every level', async () => {
     const wrapper = await mountSuspended(ThMenu, { props });
-    items.forEach((item, i) => {
+    const icons = wrapper.findAll('.th-icon');
+    expect(icons.length).toBeGreaterThan(0);
+  
+    let iconIndex = 0;
+    items.forEach((item) => {
       if (item.icon) {
-        expect(wrapper.findAll('.th-icon')[i].isVisible()).toBe(true);
+        expect(icons[iconIndex].isVisible()).toBe(true);
+        iconIndex++;
       }
-      if (item.subItems) {
-        item.subItems.forEach((subItem, j) => {
-          if (subItem.icon) {
-            expect(wrapper.findAll('.th-icon')[i + j + 1].isVisible()).toBe(true);
-          }
-          if (subItem.subItems) {
-            subItem.subItems.forEach((subSubItem, k) => {
-              if (subSubItem.icon) {
-                expect(wrapper.findAll('.th-icon')[i + j + k + 2].isVisible()).toBe(true);
-              }
-            });
+      item.subItems.forEach((subItem) => {
+        if (subItem.icon) {
+          expect(icons[iconIndex].isVisible()).toBe(true);
+          iconIndex++;
+        }
+        subItem.subItems.forEach((subSubItem) => {
+          if (subSubItem.icon) {
+            expect(icons[iconIndex].isVisible()).toBe(true);
+            iconIndex++;
           }
         });
-      }
+      });
     });
   });
+  
   common.itMergesClass(ThMenu, { props });
   common.itMergesStyle(ThMenu, { props });
 
