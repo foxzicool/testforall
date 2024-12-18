@@ -1,5 +1,5 @@
 <template>
-  <v-img :src :height :width :alt />
+  <v-img :src :height :width :alt cover/>
 </template>
 
 <script setup lang="ts">
